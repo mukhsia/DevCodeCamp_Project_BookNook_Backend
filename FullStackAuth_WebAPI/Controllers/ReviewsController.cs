@@ -45,9 +45,9 @@ namespace FullStackAuth_WebAPI.Controllers
                 return StatusCode(201, review);
 
             } 
-            catch (Exception ex) 
+            catch (Exception e) 
             { 
-                return StatusCode(500, ex.Message);
+                return StatusCode(500, e.Message);
             }
 
         }

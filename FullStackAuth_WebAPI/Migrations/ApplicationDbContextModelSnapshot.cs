@@ -68,7 +68,7 @@ namespace FullStackAuth_WebAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Favorite");
+                    b.ToTable("Favorites");
                 });
 
             modelBuilder.Entity("FullStackAuth_WebAPI.Models.Review", b =>
@@ -194,13 +194,13 @@ namespace FullStackAuth_WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce765674-6064-4af8-a852-fd1d8fbf73f3",
+                            Id = "d082b814-7bbb-42ad-bb66-8cfd16ef9502",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "29b72429-64de-482b-b938-780f35833356",
+                            Id = "5ec09d78-d451-4040-8687-aaa80eea5cac",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
