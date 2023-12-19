@@ -18,7 +18,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         // Get api/favorites
-        [HttpGet(), Authorize]
+        [HttpGet, Authorize]
         public IActionResult Get()
         {
             try
@@ -44,6 +44,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         //Post api/favorites
+        [HttpPost, Authorize]
         public IActionResult Post([FromBody] Favorite favorite)
         {
             try
@@ -65,6 +66,39 @@ namespace FullStackAuth_WebAPI.Controllers
                 _context.SaveChanges();
 
                 return StatusCode(201, favorite);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        //Post api/favorites/l3tSzQEACAAJ
+        [HttpDelete("{bookId}"), Authorize]
+        public IActionResult Delete(string bookId)
+        {
+            try
+            {
+                string userId = User.FindFirstValue("id");
+
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized();
+                }
+
+
+                var favorite = _context.Favorites.Where(f => f.BookId == bookId && f.UserId == userId).SingleOrDefault();
+                if (favorite != null)
+                {
+                    _context.Favorites.Remove(favorite);
+                    _context.SaveChanges();
+
+                    return NoContent();
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             catch (Exception e)
             {

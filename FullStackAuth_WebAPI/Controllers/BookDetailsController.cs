@@ -21,11 +21,9 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
 
-        // api/bookdetails?bookId={book ID}
-        [Authorize]
-        [AllowAnonymous]
-        [HttpGet]
-        public IActionResult GetBookDetails([FromQuery] string? bookId)
+        // api/bookdetails/l3tSzQEACAAJ
+        [HttpGet("{bookId}"), Authorize, AllowAnonymous]
+        public IActionResult GetBookDetails([FromQuery] string bookId)
         {
             if(bookId == null)
             {
