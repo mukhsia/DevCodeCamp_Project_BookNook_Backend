@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "1ed2e123-f7f0-43ff-95b2-bdb676773246",
+		"_postman_id": "fa693aa9-a64b-4de7-bfd5-a37b8f83d18e",
 		"name": "ASP_NET_Starter",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13455599"
+		"_exporter_id": "30725026"
 	},
 	"item": [
 		{
@@ -262,6 +262,256 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "BookNook",
+			"item": [
+				{
+					"name": "Post Review Hobbit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6IjZjOTgyZjI1LWE1MzYtNGU0Yy04NzE4LTU1OGNjZjQ0MWUwYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwNjExMTUsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.2U_2BLMPXKq_-Vr7V4pmdTikWL74lLF2H3XkFB7Jzec",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": \"l3tSzQEACAAJ\",\r\n    \"text\": \"Ok prequel.\",\r\n    \"rating\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/reviews",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Review Twin Towers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6IjZjOTgyZjI1LWE1MzYtNGU0Yy04NzE4LTU1OGNjZjQ0MWUwYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwNjExMTUsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.2U_2BLMPXKq_-Vr7V4pmdTikWL74lLF2H3XkFB7Jzec",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": \"LznfzAEACAAJ\",\r\n    \"text\": \"Masterpiece.\",\r\n    \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/reviews",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Favorite Hobbit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6IjZjOTgyZjI1LWE1MzYtNGU0Yy04NzE4LTU1OGNjZjQ0MWUwYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwNjExMTUsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.2U_2BLMPXKq_-Vr7V4pmdTikWL74lLF2H3XkFB7Jzec",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": \"l3tSzQEACAAJ\",\r\n    \"title\": \"The Hobbit\",\r\n    \"thumbnail\": \"http://books.google.com/books/content?id=l3tSzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/favorites",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Favorite Twin Towers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6IjZjOTgyZjI1LWE1MzYtNGU0Yy04NzE4LTU1OGNjZjQ0MWUwYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwNjExMTUsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.2U_2BLMPXKq_-Vr7V4pmdTikWL74lLF2H3XkFB7Jzec",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\": \"LznfzAEACAAJ\",\r\n    \"title\": \"The Two Towers\",\r\n    \"thumbnail\": \"http://books.google.com/books/content?id=LznfzAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/favorites",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Favorites",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Im1vbGx5IiwiZW1haWwiOiJtb2xseUBib2IuYm9iIiwiaWQiOiIzMjkyYzJjMy0xZWNhLTRhY2ItOTE5NC0xZGIxYzMzM2I1YzYiLCJleHAiOjE2ODgyMjc4NDcsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9.4SYc0aB96VtYXeUJysCPyl25cSeRGJbzohekVyr_nz8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:5001/api/favorites",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Details no auth",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/bookdetails?bookId=LznfzAEACAAJ",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bookdetails"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "LznfzAEACAAJ"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Details w/ auth",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImJvYiIsImVtYWlsIjoiYm9iQGJvYi5ib2IiLCJpZCI6IjZjOTgyZjI1LWE1MzYtNGU0Yy04NzE4LTU1OGNjZjQ0MWUwYSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3MDMwNjE1NjEsImlzcyI6IkZ1bGxTdGFja0F1dGhfV2ViQVBJIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSJ9._Qj7RSZMeZXciDNrdjMrvwAtU5nwmFs6bqpG5KlkBzY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:5001/api/bookdetails?bookId=LznfzAEACAAJ",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bookdetails"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "LznfzAEACAAJ"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
