@@ -23,13 +23,8 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // api/bookdetails/l3tSzQEACAAJ
         [HttpGet("{bookId}"), Authorize, AllowAnonymous]
-        public IActionResult GetBookDetails([FromQuery] string bookId)
+        public IActionResult GetBookDetails(string bookId)
         {
-            if(bookId == null)
-            {
-                return StatusCode(400, "bookId query parameters missing .");
-            }
-
             try
             {
                 var reviews = _context.Reviews.Where(r => r.BookId == bookId);

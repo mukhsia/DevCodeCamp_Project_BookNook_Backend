@@ -73,9 +73,9 @@ namespace FullStackAuth_WebAPI.Controllers
             }
         }
 
-        //Post api/favorites/l3tSzQEACAAJ
-        [HttpDelete("{bookId}"), Authorize]
-        public IActionResult Delete(string bookId)
+        //Delete api/favorites/3
+        [HttpDelete("{id}"), Authorize]
+        public IActionResult Delete(int id)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace FullStackAuth_WebAPI.Controllers
                 }
 
 
-                var favorite = _context.Favorites.Where(f => f.BookId == bookId && f.UserId == userId).SingleOrDefault();
+                var favorite = _context.Favorites.Where(f => f.Id == id && f.UserId == userId).SingleOrDefault();
                 if (favorite != null)
                 {
                     _context.Favorites.Remove(favorite);
