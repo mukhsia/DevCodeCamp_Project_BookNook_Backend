@@ -2,9 +2,8 @@
 {
     public class BookDetailsDto
     {
-        public int Id { get; set; }
-        public string BookId { get; set; }
-        public string Title { get; set; }
-        public string ThumbnailUrl { get; set; }
+        public List<ReviewWithUserDto> Reviews { get; set; }
+        public double Average { get; set; }
+        public bool Favorited { get; set; }
     }
 }
