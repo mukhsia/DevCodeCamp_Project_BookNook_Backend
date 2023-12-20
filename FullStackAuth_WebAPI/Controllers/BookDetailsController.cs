@@ -22,7 +22,7 @@ namespace FullStackAuth_WebAPI.Controllers
 
 
         // api/bookdetails/l3tSzQEACAAJ
-        [HttpGet("{bookId}"), Authorize, AllowAnonymous]
+        [HttpGet("{bookId}")]
         public IActionResult GetBookDetails(string bookId)
         {
             try
