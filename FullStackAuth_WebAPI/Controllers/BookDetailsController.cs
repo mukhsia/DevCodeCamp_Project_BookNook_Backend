@@ -28,7 +28,7 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
-                var reviews = _context.Reviews.Where(r => r.BookId == bookId).ToList();
+                var reviews = _context.Reviews.Where(r => r.BookId == bookId);
 
                 // Check if book doesn't exist
                 if (!reviews.IsNullOrEmpty())
