@@ -28,20 +28,20 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
+                // For Favorited by logged-in user
+                string userId = User.FindFirstValue("id");
+                var isFavorite = false;
+
+                if (userId != null)
+                {
+                    isFavorite = _context.Favorites.Any(f => f.BookId == bookId && f.UserId == userId);
+                }
+
                 var reviews = _context.Reviews.Where(r => r.BookId == bookId);
 
-                // Check if book doesn't exist
+                // If reviews exists
                 if (!reviews.IsNullOrEmpty())
                 {
-                    // For Favorited by logged-in user
-                    string userId = User.FindFirstValue("id");
-                    var isFavorite = false;
-
-                    if (userId != null)
-                    {
-                        isFavorite = _context.Favorites.Any(f => f.BookId == bookId && f.UserId == userId);
-                    }
-
                     var bookDetails = new BookDetailsDto
                     {
                         Reviews = reviews.Select(r => new ReviewWithUserDto
@@ -65,6 +65,17 @@ namespace FullStackAuth_WebAPI.Controllers
 
                     return StatusCode(200, bookDetails);
                 }
+                else if (isFavorite)
+                {
+                    var bookDetails = new BookDetailsDto
+                    {
+                        Reviews = new List<ReviewWithUserDto>(),
+                        Average = 0,
+                        Favorited = isFavorite,
+                    };
+
+                    return StatusCode(200, bookDetails);
+                } 
                 else
                 {
                     return NotFound();
