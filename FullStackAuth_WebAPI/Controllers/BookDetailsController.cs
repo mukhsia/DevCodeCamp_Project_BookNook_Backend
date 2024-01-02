@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using FullStackAuth_WebAPI.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace FullStackAuth_WebAPI.Controllers
 {
@@ -27,45 +28,49 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
-                var reviews = _context.Reviews.Where(r => r.BookId == bookId);
+                var reviews = _context.Reviews.Where(r => r.BookId == bookId).ToList();
 
-                // book does not exist, return a 404 not found response
-                if (reviews == null)
+                // Check if book doesn't exist
+                if (!reviews.IsNullOrEmpty())
+                {
+                    // For Favorited by logged-in user
+                    string userId = User.FindFirstValue("id");
+                    var isFavorite = false;
+
+                    if (userId != null)
+                    {
+                        isFavorite = _context.Favorites.Any(f => f.BookId == bookId && f.UserId == userId);
+                    }
+
+                    var bookDetails = new BookDetailsDto
+                    {
+                        Reviews = reviews.Select(r => new ReviewWithUserDto
+                        {
+                            Id = r.Id,
+                            BookId = r.BookId,
+                            Text = r.Text,
+                            Rating = r.Rating,
+                            Owner = new UserForDisplayDto
+                            {
+                                Id = r.User.Id,
+                                FirstName = r.User.FirstName,
+                                LastName = r.User.LastName,
+                                UserName = r.User.UserName,
+                            },
+
+                        }).ToList(),
+                        Average = reviews.Average(r => r.Rating),
+                        Favorited = isFavorite,
+                    };
+
+                    return StatusCode(200, bookDetails);
+                }
+                else
                 {
                     return NotFound();
                 }
 
-                // For Favorited by logged-in user
-                string userId = User.FindFirstValue("id");
-                var isFavorite = false;
 
-                if (userId != null)
-                {
-                    isFavorite = _context.Favorites.Any(f => f.BookId == bookId && f.UserId == userId);
-                }
-
-                var bookDetails = new BookDetailsDto
-                {
-                    Reviews = reviews.Select(r => new ReviewWithUserDto
-                    {
-                        Id = r.Id,
-                        BookId = r.BookId,
-                        Text = r.Text,
-                        Rating = r.Rating,
-                        Owner = new UserForDisplayDto
-                        {
-                            Id = r.User.Id,
-                            FirstName = r.User.FirstName,
-                            LastName = r.User.LastName,
-                            UserName = r.User.UserName,
-                        },
-
-                    }).ToList(),
-                    Average = reviews.Average(r => r.Rating),
-                    Favorited = isFavorite,
-                };
-
-                return StatusCode(200, bookDetails);
             }
             catch (Exception ex)
             {
