@@ -65,7 +65,7 @@ namespace FullStackAuth_WebAPI.Controllers
 
                     return StatusCode(200, bookDetails);
                 }
-                else if (isFavorite)
+                else
                 {
                     var bookDetails = new BookDetailsDto
                     {
@@ -75,12 +75,7 @@ namespace FullStackAuth_WebAPI.Controllers
                     };
 
                     return StatusCode(200, bookDetails);
-                } 
-                else
-                {
-                    return NotFound();
                 }
-
 
             }
             catch (Exception ex)
